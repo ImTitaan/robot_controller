@@ -39,7 +39,7 @@ class RobotControllerNode(Node):
     def set_motor(self, msg):
         bounded_x = msg.linear.y if abs(msg.linear.x) <= 1.0 else 1.0
         bounded_y = msg.linear.y if abs(msg.linear.y) <= 1.0 else 1.0
-        bounded_z = msg.angular.z if abs(msg.linear.x) <= 1.0 else 1.0
+        bounded_z = msg.angular.x if abs(msg.angular.x) <= 1.0 else 1.0
 
         motor1 = (
             bounded_x - bounded_y - bounded_z * (self.wheelbase + self.track_width) / 2
