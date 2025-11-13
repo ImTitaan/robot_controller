@@ -14,7 +14,7 @@ import math
 import rclpy
 
 from rclpy.node import Node
-from ros_robot_controller_sdk import Board
+from robot_controller.ros_robot_controller_sdk import Board
 
 from geometry_msgs.msg import Twist
 
