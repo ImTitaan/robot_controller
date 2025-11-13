@@ -11,7 +11,6 @@ CODY W.
 11/5/2025
 """
 import rclpy
-import math
 
 from rclpy.node import Node
 from ros_robot_controller_sdk import Board
@@ -25,7 +24,6 @@ class RobotControllerNode(Node):
 
         self.board = Board()
         self.board.enable_reception()
-        self.running = True
 
         # TODO: Double Check Constants
         self.wheelbase = 0.145
