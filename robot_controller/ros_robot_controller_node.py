@@ -10,6 +10,7 @@ CODY W.
 
 11/5/2025
 """
+import math
 import rclpy
 
 from rclpy.node import Node
@@ -33,6 +34,9 @@ class RobotControllerNode(Node):
         self.cmd_subscriber = self.create_subscription(
             Twist, "/cmd_vel", self.set_motor, 10
         )
+
+    def speed_covert(self, speed):
+        return speed / (math.pi * self.wheel_diameter)
 
     def set_motor(self, msg):
         bounded_x = msg.linear.y if abs(msg.linear.x) <= 1.0 else 1.0
